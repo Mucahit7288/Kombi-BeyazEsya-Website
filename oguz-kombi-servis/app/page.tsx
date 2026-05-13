@@ -2,11 +2,7 @@
 
 import { useState, useEffect } from "react";
 import {
-  Flame,
-  WashingMachine,
-  Utensils,
-  Refrigerator,
-  ChefHat,
+  Snowflake,
   Wind,
   ShieldCheck,
   Clock,
@@ -22,6 +18,10 @@ import {
   Award,
   Users,
   MessageCircle,
+  Wrench,
+  Droplets,
+  Building2,
+  Settings,
 } from "lucide-react";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
@@ -58,40 +58,40 @@ const WA_LINK = "https://wa.me/905326694399";
 
 const services: Service[] = [
   {
-    icon: <Flame className="w-8 h-8" />,
-    title: "Kombi",
+    icon: <Settings className="w-8 h-8" />,
+    title: "Klima Montaj & De-Montaj",
     description:
-      "Tüm marka ve model kombilerde yıllık bakım, arıza tespiti ve parça değişimi yapılmaktadır.",
-  },
-  {
-    icon: <WashingMachine className="w-8 h-8" />,
-    title: "Çamaşır Makinesi",
-    description:
-      "Motor, kapı kilidi, drum ve program kartı arızaları. Yerinde hızlı teşhis ve parça değişimi.",
-  },
-  {
-    icon: <Utensils className="w-8 h-8" />,
-    title: "Bulaşık Makinesi",
-    description:
-      "Su alma, ısıtma ve pompa sorunları dahil tüm arızalar. Parça değişimi ve onarımı güvenceli yapılır.",
-  },
-  {
-    icon: <Refrigerator className="w-8 h-8" />,
-    title: "Buzdolabı",
-    description:
-      "Soğutma sistemi, kompresör ve termostat arızaları. Tüm markalara orijinal parça değişimi.",
-  },
-  {
-    icon: <ChefHat className="w-8 h-8" />,
-    title: "Fırın",
-    description:
-      "Rezistans, termostat ve kontrol sorunları. Hem ankastre hem de solo fırınlarda hizmet verilir.",
+      "Mevcut klimanızın sökümü, taşınması ve yeni klimanızın eksiksiz kurulumu. Tüm marka ve modeller için profesyonel montaj.",
   },
   {
     icon: <Wind className="w-8 h-8" />,
-    title: "Klima",
+    title: "Periyodik Bakım",
     description:
-      "Gaz dolumu, filtre temizliği ve arıza onarımı. Sezon öncesi bakım ve parça değişimi yapılır.",
+      "Filtre temizliği, serpantin yıkama ve sistem kontrolü ile klimanızın ömrünü uzatın, enerji tasarrufu sağlayın.",
+  },
+  {
+    icon: <Zap className="w-8 h-8" />,
+    title: "Gaz Dolumu",
+    description:
+      "Eksik gazın tamamlanması ve kaçak tespiti. Yetersiz soğutmanın en yaygın sebebini hızlıca çözüyoruz.",
+  },
+  {
+    icon: <Wrench className="w-8 h-8" />,
+    title: "Arıza Onarımı",
+    description:
+      "Anakart, kompresör ve sensör arızaları dahil tüm elektronik ve mekanik sorunlarda yerinde teşhis ve onarım.",
+  },
+  {
+    icon: <Droplets className="w-8 h-8" />,
+    title: "Su Damlatma Çözümleri",
+    description:
+      "Drenaj hattı temizliği ve tıkanıklık giderme. Su sızıntısı sorununuzu kökten çözerek duvarlarınızı koruyun.",
+  },
+  {
+    icon: <Building2 className="w-8 h-8" />,
+    title: "VRF & Multi Sistemler",
+    description:
+      "Ticari ve büyük işletme klimaları için özel teknik servis. Otel, rezidans ve yazlık komplekslere kapsamlı hizmet.",
   },
 ];
 
@@ -108,7 +108,7 @@ const trustItems: TrustItem[] = [
   },
   {
     icon: <MapPin className="w-7 h-7" />,
-    title: "Bursa Merkezli Uzman Kadro",
+    title: "Çeşme Merkezli Uzman Kadro",
     subtitle: "Bölgeyi bilen, zamanında gelen teknisyenler",
   },
   {
@@ -137,16 +137,16 @@ const stats: Stat[] = [
 
 const faqs: FAQItem[] = [
   {
-    q: "Aynı gün servisiniz var mı?",
-    a: "Evet. Akşam saatlerine kadar iletilen taleplerinize aynı gün servis sağlıyoruz. Sabah arayın, öğleden sonra teknisyenimiz kapınızda olsun.",
+    q: "Aynı gün klima montajı yapıyor musunuz?",
+    a: "Evet. Çeşme, Alaçatı ve çevre ilçelerde sabah iletilen taleplere aynı gün montaj veya servis sağlıyoruz. Sezon yoğunluğunda en geç ertesi gün ekibimiz kapınızda olur.",
   },
   {
-    q: "Parça garantisi veriyor musunuz?",
+    q: "Parça ve işçilik garantisi veriyor musunuz?",
     a: "Değişen tüm yedek parçalarımız ve işçiliğimiz 12 Ay (1 Yıl) garantilidir. Garanti kapsamındaki arızalarda ücretsiz müdahale yapılır.",
   },
   {
     q: "Hangi bölgelere hizmet veriyorsunuz?",
-    a: "Bursa Merkez, Nilüfer, Osmangazi, Yıldırım ve Kestel ilçelerine hizmet vermekteyiz.",
+    a: "Çeşme, Alaçatı, Ilıca, Dalyan, Şifne ve Urla başta olmak üzere İzmir'in tüm batı yakasına hizmet vermekteyiz.",
   },
   {
     q: "Randevu için ne yapmam gerekiyor?",
@@ -155,23 +155,21 @@ const faqs: FAQItem[] = [
 ];
 
 const districts = [
-  "Nilüfer",
-  "Osmangazi",
-  "Yıldırım",
-  "Kestel",
-  "Mudanya",
-  "Gemlik",
-  "Gürsu",
-  "Karacabey",
+  "Çeşme",
+  "Alaçatı",
+  "Ilıca",
+  "Dalyan",
+  "Şifne",
+  "Urla",
 ];
 
 const DEVICES = [
-  "Kombi",
-  "Çamaşır Makinesi",
-  "Bulaşık Makinesi",
-  "Buzdolabı",
-  "Fırın",
-  "Klima",
+  "Klima Montajı",
+  "Klima Bakımı",
+  "Arıza / Çalışmıyor",
+  "Gaz Dolumu",
+  "Su Damlatıyor",
+  "Diğer",
 ];
 
 // ─── WhatsApp URL ─────────────────────────────────────────────────────────────
@@ -184,12 +182,12 @@ function buildWaUrl(
   fault: string
 ): string {
   const text =
-    "Merhaba, teknik servis randevusu almak istiyorum.\n\n" +
+    "Merhaba, klima teknik servis randevusu almak istiyorum.\n\n" +
     "\uD83D\uDC64 \u0130sim: " + name + "\n" +
     "\uD83D\uDCDE Telefon: " + phone + "\n" +
     "\uD83D\uDCCD Adres: " + (address || "-") + "\n" +
-    "\uD83D\uDD27 Cihaz: " + device + "\n" +
-    "\u26A0\uFE0F Ar\u0131za: " + (fault || "-");
+    "\u2744\uFE0F Hizmet T\u00fcr\u00fc: " + device + "\n" +
+    "\u26A0\uFE0F Sorun: " + (fault || "-");
   return WA_LINK + "?text=" + encodeURIComponent(text);
 }
 
@@ -222,10 +220,10 @@ function Header() {
                 className="font-black text-white text-lg sm:text-xl lg:text-2xl tracking-tight"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
-                OĞUZ KOMBİ
+                ÇEŞME KLİMA
               </span>
               <span className="text-[10px] sm:text-xs text-blue-300 font-medium tracking-widest uppercase">
-                Beyaz Eşya Teknik Servis · Bursa
+                Çeşme Klima Teknik Servisi
               </span>
             </div>
           </div>
@@ -246,7 +244,7 @@ function Header() {
           {/* CTA */}
           <a
             href={PHONE_TEL}
-            className="flex items-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] active:bg-[#c45d09] text-white font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl transition-all duration-200 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 active:scale-95 whitespace-nowrap text-sm sm:text-base"
+            className="flex items-center gap-2 bg-[#0891b2] hover:bg-[#0e7490] active:bg-[#0c5f73] text-white font-bold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl transition-all duration-200 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105 active:scale-95 whitespace-nowrap text-sm sm:text-base"
           >
             <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
             <span className="hidden sm:inline">{"Hemen Ara · " + PHONE}</span>
@@ -306,14 +304,14 @@ function Hero() {
 
       {/* Glowing orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Diagonal accent stripe */}
       <div
         className="absolute right-0 top-0 w-1/3 h-full opacity-5"
         style={{
           background:
-            "linear-gradient(135deg, transparent 40%, #f97316 40%, #f97316 60%, transparent 60%)",
+            "linear-gradient(135deg, transparent 40%, #0891b2 40%, #0891b2 60%, transparent 60%)",
         }}
       />
 
@@ -321,17 +319,17 @@ function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Content */}
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/40 text-orange-300 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
-              <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-              {"Bursa'n\u0131n G\u00fcvenilir Teknik Servisi"}
+            <div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
+              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+              {"Çeşme'nin Güvenilir Klima Servisi"}
             </div>
 
             <h1
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              {"Bursa'da"}{" "}
-              <span className="text-[#f97316] relative">
+              {"Çeşme'de"}{" "}
+              <span className="text-[#0891b2] relative">
                 Güvenilir
                 <svg
                   className="absolute -bottom-1 left-0 w-full"
@@ -341,7 +339,7 @@ function Hero() {
                 >
                   <path
                     d="M2 6C50 2 150 1 298 6"
-                    stroke="#f97316"
+                    stroke="#0891b2"
                     strokeWidth="3"
                     strokeLinecap="round"
                     opacity="0.6"
@@ -349,23 +347,23 @@ function Hero() {
                 </svg>
               </span>{" "}
               <br />
-              Kombi &amp; Beyaz Eşya
+              Klima Montaj &amp;
               <br />
-              Teknik Servisi
+              Teknik Servis
             </h1>
 
             <p className="text-blue-200 text-lg sm:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
               <strong className="text-white">
-                Nilüfer, Osmangazi, Yıldırım, Gürsu ve Kestel
+                Çeşme sıcağında klimasız kalmayın.
               </strong>{" "}
-              bölgelerinde aynı gün yerinde hizmet. Arıza telefonda teşhis,
-              kapıda çözüm.
+              Aynı gün montaj ve servis. Alaçatı, Ilıca, Dalyan, Şifne ve Urla
+              dahil tüm bölgede kapıda çözüm.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
                 href={PHONE_TEL}
-                className="flex items-center justify-center gap-3 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all duration-200 shadow-2xl shadow-orange-500/40 hover:shadow-orange-500/60 hover:scale-105 active:scale-95"
+                className="flex items-center justify-center gap-3 bg-[#0891b2] hover:bg-[#0e7490] text-white font-bold px-8 py-4 rounded-2xl text-lg transition-all duration-200 shadow-2xl shadow-cyan-500/40 hover:shadow-cyan-500/60 hover:scale-105 active:scale-95"
               >
                 <Phone className="w-6 h-6" />
                 {PHONE}
@@ -383,7 +381,7 @@ function Hero() {
 
             {/* District tags */}
             <div className="mt-8 flex flex-wrap gap-2 justify-center lg:justify-start">
-              {["Nilüfer", "Osmangazi", "Yıldırım", "Kestel","Gürsu"].map((d) => (
+              {["Çeşme", "Alaçatı", "Ilıca", "Dalyan", "Şifne"].map((d) => (
                 <span
                   key={d}
                   className="flex items-center gap-1 bg-white/10 text-blue-200 text-xs font-medium px-3 py-1.5 rounded-full border border-white/10"
@@ -401,21 +399,21 @@ function Hero() {
               <div className="absolute -inset-4 bg-blue-500/20 rounded-3xl blur-2xl" />
               <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 sm:p-10 w-full max-w-sm">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 bg-[#f97316] rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/40">
-                    <Flame className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-[#0891b2] rounded-2xl flex items-center justify-center shadow-lg shadow-cyan-500/40">
+                    <Snowflake className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <p className="text-white font-bold text-lg leading-tight">
-                      Oğuz Teknik Servis
+                      Çeşme Teknik Servis
                     </p>
-                    <p className="text-blue-300 text-sm">Bursa</p>
+                    <p className="text-blue-300 text-sm">Çeşme / İzmir</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   {stats.map((s) => (
                     <div key={s.label} className="text-center">
-                      <p className="text-3xl font-black text-[#f97316] leading-none">
+                      <p className="text-3xl font-black text-[#0891b2] leading-none">
                         {s.value}
                       </p>
                       <p className="text-blue-300 text-xs mt-1 leading-tight">
@@ -433,9 +431,9 @@ function Hero() {
                     ))}
                   </div>
                   <p className="text-white text-sm font-medium">
-                    &ldquo;Kombim çok kısa sürede tamir edildi, fiyat çok uygundu.&rdquo;
+                    &ldquo;Klimam çok kısa sürede tamir edildi, fiyat çok uygundu.&rdquo;
                   </p>
-                  <p className="text-blue-400 text-xs mt-1">— Ahmet K., Nilüfer</p>
+                  <p className="text-blue-400 text-xs mt-1">— Mehmet A., Alaçatı</p>
                 </div>
 
                 {/* Live availability */}
@@ -484,7 +482,7 @@ function ServiceCard({ service }: { service: Service }) {
         {service.title}
       </h3>
       <p className="text-slate-500 text-sm leading-relaxed">{service.description}</p>
-      <div className="mt-5 flex items-center gap-1 text-[#f97316] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="mt-5 flex items-center gap-1 text-[#0891b2] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <CheckCircle className="w-4 h-4" />
         <span>Garantili Hizmet</span>
       </div>
@@ -496,7 +494,7 @@ function ServiceCard({ service }: { service: Service }) {
 
 function BrandMarquee() {
   const band =
-    "BOSCH \u2022 VAILLANT \u2022 BAYMAK \u2022 AR\u00c7EL\u0130K \u2022 E.C.A \u2022 VIESSMANN \u2022 BUDERUS";
+    "DAIKIN \u2022 MITSUBISHI \u2022 MIDEA \u2022 AR\u00c7EL\u0130K \u2022 BEKO \u2022 VESTEL \u2022 LG \u2022 SAMSUNG";
 
   return (
     <div
@@ -526,7 +524,7 @@ function BrandMarquee() {
               fontSize: "clamp(16px, 2.2vw, 22px)",
               fontWeight: 800,
               letterSpacing: "0.1em",
-              color: "#f97316",
+              color: "#0891b2",
               padding: "0 2.5rem",
             }}
           >
@@ -545,7 +543,7 @@ function Services() {
     <section id="hizmetler" className="py-20 lg:py-28 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block text-[#f97316] font-bold text-sm uppercase tracking-widest mb-3">
+          <span className="inline-block text-[#0891b2] font-bold text-sm uppercase tracking-widest mb-3">
             Yapılan İşlemler
           </span>
           <h2
@@ -555,8 +553,8 @@ function Services() {
             Uzmanlaştığımız Hizmetler
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Kombi ve beyaz eşya arızalarında kapıdan kapıya, parça değişimi ve
-            onarımı dahil garantili teknik servis.
+            Çeşme ve İzmir genelinde klima montaj, bakım ve arıza onarımında
+            kapıdan kapıya, garantili teknik servis.
           </p>
         </div>
 
@@ -607,7 +605,7 @@ function AppointmentForm() {
     const { name, phone, device } = form;
     if (!name.trim() || !phone.trim() || !device) {
       alert(
-        "Lütfen en azından İsim, Telefon ve Cihaz Türü alanlarını doldurun."
+        "Lütfen en azından İsim, Telefon ve Hizmet Türü alanlarını doldurun."
       );
       return;
     }
@@ -628,7 +626,7 @@ function AppointmentForm() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Info */}
           <div>
-            <span className="inline-block text-[#f97316] font-bold text-sm uppercase tracking-widest mb-3">
+            <span className="inline-block text-[#0891b2] font-bold text-sm uppercase tracking-widest mb-3">
               Randevu Al
             </span>
             <h2
@@ -645,9 +643,9 @@ function AppointmentForm() {
 
             <div className="space-y-4">
               {[
-                { icon: <Clock className="w-5 h-5" />, text: "Aynı gün servis imkânı" },
+                { icon: <Clock className="w-5 h-5" />, text: "Aynı gün montaj ve servis imkânı" },
                 { icon: <ShieldCheck className="w-5 h-5" />, text: "12 ay parça ve işçilik garantisi" },
-                { icon: <MapPin className="w-5 h-5" />, text: "Nilüfer, Osmangazi, Yıldırım, Kestel" },
+                { icon: <MapPin className="w-5 h-5" />, text: "Çeşme, Alaçatı, Ilıca, Dalyan, Şifne, Urla" },
                 { icon: <CheckCircle className="w-5 h-5" />, text: "Tüm marka ve modeller" },
               ].map(({ icon, text }) => (
                 <div key={text} className="flex items-center gap-3 text-slate-700">
@@ -671,7 +669,7 @@ function AppointmentForm() {
               className="text-white text-2xl font-black mb-1"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              ⚡ Randevu Formu
+              ❄️ Randevu Formu
             </h3>
             <p className="text-blue-300 text-sm mb-7">
               {"Bilgileriniz WhatsApp'a aktarılacaktır."}
@@ -715,14 +713,14 @@ function AppointmentForm() {
                   name="address"
                   value={form.address}
                   onChange={handleChange}
-                  placeholder="Örn: Nilüfer / Görükle Mah."
+                  placeholder="Örn: Alaçatı / Çeşme"
                   className={inputCls}
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-blue-300 uppercase tracking-widest mb-1.5">
-                  Cihaz Türü
+                  Hizmet Türü
                 </label>
                 <select
                   name="device"
@@ -758,7 +756,7 @@ function AppointmentForm() {
                 className={`w-full flex items-center justify-center gap-3 font-black text-white py-4 rounded-2xl text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg ${
                   sent
                     ? "bg-green-500 shadow-green-500/40"
-                    : "bg-[#f97316] shadow-orange-500/40 hover:bg-[#ea6c0a]"
+                    : "bg-[#0891b2] shadow-cyan-500/40 hover:bg-[#0e7490]"
                 }`}
                 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
@@ -786,7 +784,7 @@ function FAQAccordion() {
     <section id="sss" className="py-20 lg:py-28 bg-slate-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="inline-block text-[#f97316] font-bold text-sm uppercase tracking-widest mb-3">
+          <span className="inline-block text-[#0891b2] font-bold text-sm uppercase tracking-widest mb-3">
             Merak Edilenler
           </span>
           <h2
@@ -818,7 +816,7 @@ function FAQAccordion() {
                     className="w-5 h-5 flex-shrink-0 transition-transform duration-300"
                     style={{
                       transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                      color: isOpen ? "#f97316" : "#94a3b8",
+                      color: isOpen ? "#0891b2" : "#94a3b8",
                     }}
                   />
                 </button>
@@ -843,7 +841,7 @@ function HowItWorks() {
     {
       num: "01",
       title: "Arayın ya da Yazın",
-      desc: "Telefon veya WhatsApp ile bize ulaşın. Arızanızı kısaca anlatın.",
+      desc: "Telefon veya WhatsApp ile bize ulaşın. Arızanızı veya ihtiyacınızı kısaca anlatın.",
     },
     {
       num: "02",
@@ -853,12 +851,12 @@ function HowItWorks() {
     {
       num: "03",
       title: "Yerinde Müdahale",
-      desc: "En kısa sürede adresinize gelir, sorunu yerinde çözeriz.",
+      desc: "En kısa sürede adresinize gelir, montaj veya onarımı yerinde gerçekleştiririz.",
     },
     {
       num: "04",
       title: "12 Ay Garanti",
-      desc: "Parça ve işçilik garantisi ile cihazınızı teslim alırsınız.",
+      desc: "Parça ve işçilik garantisi ile klimanızı sorunsuz teslim alırsınız.",
     },
   ];
 
@@ -866,7 +864,7 @@ function HowItWorks() {
     <section className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block text-[#f97316] font-bold text-sm uppercase tracking-widest mb-3">
+          <span className="inline-block text-[#0891b2] font-bold text-sm uppercase tracking-widest mb-3">
             Süreç
           </span>
           <h2
@@ -886,7 +884,7 @@ function HowItWorks() {
               <div className="relative z-10">
                 <div className="w-16 h-16 bg-[#1e3a8a] rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-xl shadow-blue-900/30">
                   <span
-                    className="text-[#f97316] font-black text-2xl"
+                    className="text-[#0891b2] font-black text-2xl"
                     style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                   >
                     {step.num}
@@ -908,7 +906,7 @@ function HowItWorks() {
 function TrustCard({ item }: { item: TrustItem }) {
   return (
     <div className="flex items-start gap-4 bg-white/10 hover:bg-white/15 border border-white/10 rounded-2xl p-6 transition-all duration-200 backdrop-blur-sm">
-      <div className="w-12 h-12 bg-[#f97316] rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-500/30">
+      <div className="w-12 h-12 bg-[#0891b2] rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-cyan-500/30">
         <span className="text-white">{item.icon}</span>
       </div>
       <div>
@@ -928,7 +926,7 @@ function TrustSignals() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block text-[#f97316] font-bold text-sm uppercase tracking-widest mb-3">
+          <span className="inline-block text-[#0891b2] font-bold text-sm uppercase tracking-widest mb-3">
             Neden Biz?
           </span>
           <h2
@@ -938,8 +936,8 @@ function TrustSignals() {
             Güven Faktörleri
           </h2>
           <p className="text-blue-300 text-lg max-w-xl mx-auto">
-            Binlerce Bursa sakininin tercih ettiği teknik servis olmanın
-            arkasındaki değerler.
+            Binlerce İzmir ve Çeşme sakininin tercih ettiği klima servisi
+            olmanın arkasındaki değerler.
           </p>
         </div>
 
@@ -950,20 +948,20 @@ function TrustSignals() {
         </div>
 
         {/* Emergency banner */}
-        <div className="mt-14 bg-[#f97316]/20 border border-[#f97316]/40 rounded-3xl p-8 sm:p-10 text-center backdrop-blur-sm">
+        <div className="mt-14 bg-[#0891b2]/20 border border-[#0891b2]/40 rounded-3xl p-8 sm:p-10 text-center backdrop-blur-sm">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-3 h-3 bg-[#f97316] rounded-full animate-ping" />
-            <span className="text-[#f97316] font-bold text-lg uppercase tracking-wide">
+            <div className="w-3 h-3 bg-[#0891b2] rounded-full animate-ping" />
+            <span className="text-[#0891b2] font-bold text-lg uppercase tracking-wide">
               7/24 Acil Teknik Servis
             </span>
           </div>
           <p className="text-blue-200 text-base sm:text-lg mb-6 max-w-lg mx-auto">
-            Kombiniz arızalandı mı? Soğuk bir gecede bizi arayın, en kısa sürede
+            Klimanız arızalandı mı? Çeşme sıcağında bizi arayın, en kısa sürede
             kapınızdayız.
           </p>
           <a
             href={PHONE_TEL}
-            className="inline-flex items-center gap-3 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-black px-10 py-4 rounded-2xl text-lg sm:text-xl transition-all duration-200 shadow-2xl shadow-orange-500/40 hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-3 bg-[#0891b2] hover:bg-[#0e7490] text-white font-black px-10 py-4 rounded-2xl text-lg sm:text-xl transition-all duration-200 shadow-2xl shadow-cyan-500/40 hover:scale-105 active:scale-95"
           >
             <Phone className="w-6 h-6" />
             {PHONE}
@@ -1035,14 +1033,18 @@ function StickyWA() {
 
 function Footer() {
   const seoTags = [
-    "Nilüfer Kombi Servisi",
-    "Osmangazi Beyaz Eşya Tamiri",
-    "Yıldırım Klima Bakımı",
-    "Bursa Petek Temizliği",
-    "Bursa Kombi Tamiri",
-    "Nilüfer Çamaşır Makinesi Servisi",
-    "Kestel Buzdolabı Tamiri",
-    "Osmangazi Çamaşır Makinesi Tamiri",
+    "Çeşme Klima Montajı",
+    "Alaçatı Klima Bakımı",
+    "Çeşme Klima Servisi",
+    "Ilıca Klima Tamiri",
+    "Çeşme Klima Gaz Dolumu",
+    "Dalyan Klima Montaj",
+    "Şifne Klima Servisi",
+    "Urla Klima Bakımı",
+    "Çeşme Daikin Servis",
+    "Alaçatı Mitsubishi Klima",
+    "İzmir Çeşme VRF Sistem",
+    "Çeşme Klima Su Damlatıyor",
   ];
 
   return (
@@ -1056,51 +1058,36 @@ function Footer() {
                 className="font-black text-3xl text-white tracking-tight"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
-                OĞUZ KOMBİ
+                ÇEŞME KLİMA
               </p>
-              <p className="text-[#f97316] font-bold text-sm tracking-widest uppercase mt-0.5">
-                Beyaz Eşya Teknik Servis
+              <p className="text-[#0891b2] font-bold text-sm tracking-widest uppercase mt-0.5">
+                Çeşme Klima Teknik Servisi
               </p>
             </div>
             <p className="text-blue-300 text-sm leading-relaxed mb-6">
-              Bursa genelinde kombi, çamaşır makinesi, bulaşık makinesi,
-              buzdolabı, fırın ve klima tamirinde güvenilir adresiniz. Orijinal
-              parça, 12 ay garantili işçilik.
+              Çeşme, Alaçatı, Ilıca, Dalyan, Şifne ve Urla bölgelerinde klima
+              montaj, bakım, gaz dolumu ve arıza onarımında güvenilir adresiniz.
+              Orijinal parça, 12 ay garantili işçilik.
             </p>
             <a
               href={PHONE_TEL}
-              className="inline-flex items-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-bold px-6 py-3 rounded-xl text-sm transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center gap-2 bg-[#0891b2] hover:bg-[#0e7490] text-white font-bold px-6 py-3 rounded-xl text-sm transition-all duration-200 hover:scale-105"
             >
               <Phone className="w-4 h-4" />
               {PHONE}
             </a>
           </div>
 
-          {/* Districts */}
-          <div>
-            <h3 className="font-bold text-white text-lg mb-5 flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-[#f97316]" />
-              Hizmet Bölgeleri
-            </h3>
-            <div className="grid grid-cols-2 gap-2">
-              {districts.map((d) => (
-                <div key={d} className="flex items-center gap-2 text-blue-300 text-sm">
-                  <ChevronRight className="w-3 h-3 text-[#f97316] flex-shrink-0" />
-                  <span>{d}</span>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Contact */}
           <div>
             <h3 className="font-bold text-white text-lg mb-5 flex items-center gap-2">
-              <Phone className="w-5 h-5 text-[#f97316]" />
+              <Phone className="w-5 h-5 text-[#0891b2]" />
               İletişim
             </h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-3 text-blue-300">
-                <Phone className="w-4 h-4 text-[#f97316] flex-shrink-0 mt-0.5" />
+                <Phone className="w-4 h-4 text-[#0891b2] flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-white font-semibold">{PHONE}</p>
                   <p>7/24 Teknik Destek Hattı</p>
@@ -1119,17 +1106,17 @@ function Footer() {
                 </div>
               </a>
               <div className="flex items-start gap-3 text-blue-300">
-                <MapPin className="w-4 h-4 text-[#f97316] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#0891b2] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-white font-semibold">Bursa Merkez</p>
-                  <p>Nilüfer, Osmangazi, Yıldırım, Kestel</p>
+                  <p className="text-white font-semibold">Çeşme & İzmir</p>
+                  <p>Alaçatı, Ilıca, Dalyan, Şifne, Urla</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 text-blue-300">
-                <Clock className="w-4 h-4 text-[#f97316] flex-shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-[#0891b2] flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-white font-semibold">7 Gün 24 Saat</p>
-                  <p>Aynı gün servis imkânı</p>
+                  <p>Aynı gün montaj ve servis imkânı</p>
                 </div>
               </div>
             </div>
@@ -1154,8 +1141,8 @@ function Footer() {
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-blue-400">
           <p>
-            &copy; {new Date().getFullYear()} Oğuz Kombi Beyaz Eşya Teknik
-            Servis · Bursa. Tüm hakları saklıdır.
+            &copy; {new Date().getFullYear()} Oğuz Klima Teknik Servis · Çeşme
+            / İzmir. Tüm hakları saklıdır.
           </p>
           <p className="flex items-center gap-1">
             <ShieldCheck className="w-4 h-4 text-green-400" />
