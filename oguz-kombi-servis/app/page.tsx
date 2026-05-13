@@ -138,7 +138,7 @@ const stats: Stat[] = [
 const faqs: FAQItem[] = [
   {
     q: "Aynı gün klima montajı yapıyor musunuz?",
-    a: "Evet. Çeşme&apos;de sabah iletilen taleplere aynı gün montaj veya servis sağlıyoruz. Sezon yoğunluğunda en geç ertesi gün ekibimiz kapınızda olur.",
+    a: `Evet. Çeşme'de sabah iletilen taleplere aynı gün montaj veya servis sağlıyoruz. Sezon yoğunluğunda en geç ertesi gün ekibimiz kapınızda olur.`,
   },
   {
     q: "Parça ve işçilik garantisi veriyor musunuz?",
@@ -146,7 +146,7 @@ const faqs: FAQItem[] = [
   },
   {
     q: "Hangi bölgelere hizmet veriyorsunuz?",
-    a: "Çeşme&apos;de klima montaj, bakım ve arıza onarımında kapıdan kapıya hizmet vermekteyiz.",
+    a: `Çeşme'de klima montaj, bakım ve arıza onarımında kapıdan kapıya hizmet vermekteyiz.`,
   },
   {
     q: "Randevu için ne yapmam gerekiyor?",
@@ -316,14 +316,14 @@ function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-              {"Çeşme&apos;nin Güvenilir Klima Servisi"}
+              {"Çeşme'nin Güvenilir Klima Servisi"}
             </div>
 
             <h1
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              {"Çeşme&apos;de"}{" "}
+              {"Çeşme'de"}{" "}
               <span className="text-[#0891b2] relative">
                 Güvenilir
                 <svg
@@ -351,7 +351,7 @@ function Hero() {
               <strong className="text-white">
                 Çeşme sıcağında klimasız kalmayın.
               </strong>{" "}
-              Aynı gün montaj ve servis. Çeşme&apos;de kapıda çözüm.
+              {`Çeşme’de kapıda çözüm.`}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -369,7 +369,7 @@ function Hero() {
                 className="flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1db954] text-white font-bold px-8 py-4 rounded-2xl text-lg border border-transparent transition-all duration-200 shadow-2xl shadow-green-500/30 hover:scale-105"
               >
                 <MessageCircle className="w-6 h-6" />
-                {"WhatsApp&apos;tan Yaz"}
+                {"WhatsApp'tan Yaz"}
               </a>
             </div>
 
@@ -547,7 +547,7 @@ function Services() {
             Uzmanlaştığımız Hizmetler
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Çeşme&apos;de klima montaj, bakım ve arıza onarımında
+            {`Çeşme'de klima montaj, bakım ve arıza onarımında`}
             kapıdan kapıya, garantili teknik servis.
           </p>
         </div>
@@ -627,11 +627,11 @@ function AppointmentForm() {
               className="text-4xl sm:text-5xl font-black text-[#1e3a8a] mb-5 leading-tight"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              {"WhatsApp&apos;tan"} Hızlı Randevu
+              {"WhatsApp'tan"} Hızlı Randevu
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-8">
               Formu doldurun, bilgileriniz otomatik olarak{" "}
-              {"WhatsApp&apos;a"} aktarılsın. Teknisyenimiz en kısa sürede
+              {"WhatsApp'a"} aktarılsın. Teknisyenimiz en kısa sürede
               geri döner.
             </p>
 
@@ -666,7 +666,7 @@ function AppointmentForm() {
               ❄️ Randevu Formu
             </h3>
             <p className="text-blue-300 text-sm mb-7">
-              {"Bilgileriniz WhatsApp&apos;a aktarılacaktır."}
+              {"Bilgileriniz WhatsApp'a aktarılacaktır."}
             </p>
 
             <div className="space-y-4">
