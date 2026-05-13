@@ -138,7 +138,7 @@ const stats: Stat[] = [
 const faqs: FAQItem[] = [
   {
     q: "Aynı gün klima montajı yapıyor musunuz?",
-    a: "Evet. Çeşme, Alaçatı ve çevre ilçelerde sabah iletilen taleplere aynı gün montaj veya servis sağlıyoruz. Sezon yoğunluğunda en geç ertesi gün ekibimiz kapınızda olur.",
+    a: "Evet. Çeşme&apos;de sabah iletilen taleplere aynı gün montaj veya servis sağlıyoruz. Sezon yoğunluğunda en geç ertesi gün ekibimiz kapınızda olur.",
   },
   {
     q: "Parça ve işçilik garantisi veriyor musunuz?",
@@ -146,7 +146,7 @@ const faqs: FAQItem[] = [
   },
   {
     q: "Hangi bölgelere hizmet veriyorsunuz?",
-    a: "Çeşme, Alaçatı, Ilıca, Dalyan, Şifne ve Urla başta olmak üzere İzmir'in tüm batı yakasına hizmet vermekteyiz.",
+    a: "Çeşme&apos;de klima montaj, bakım ve arıza onarımında kapıdan kapıya hizmet vermekteyiz.",
   },
   {
     q: "Randevu için ne yapmam gerekiyor?",
@@ -156,11 +156,6 @@ const faqs: FAQItem[] = [
 
 const districts = [
   "Çeşme",
-  "Alaçatı",
-  "Ilıca",
-  "Dalyan",
-  "Şifne",
-  "Urla",
 ];
 
 const DEVICES = [
@@ -321,14 +316,14 @@ function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
               <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-              {"Çeşme'nin Güvenilir Klima Servisi"}
+              {"Çeşme&apos;nin Güvenilir Klima Servisi"}
             </div>
 
             <h1
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-6"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              {"Çeşme'de"}{" "}
+              {"Çeşme&apos;de"}{" "}
               <span className="text-[#0891b2] relative">
                 Güvenilir
                 <svg
@@ -356,8 +351,7 @@ function Hero() {
               <strong className="text-white">
                 Çeşme sıcağında klimasız kalmayın.
               </strong>{" "}
-              Aynı gün montaj ve servis. Alaçatı, Ilıca, Dalyan, Şifne ve Urla
-              dahil tüm bölgede kapıda çözüm.
+              Aynı gün montaj ve servis. Çeşme&apos;de kapıda çözüm.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -375,13 +369,13 @@ function Hero() {
                 className="flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1db954] text-white font-bold px-8 py-4 rounded-2xl text-lg border border-transparent transition-all duration-200 shadow-2xl shadow-green-500/30 hover:scale-105"
               >
                 <MessageCircle className="w-6 h-6" />
-                {"WhatsApp'tan Yaz"}
+                {"WhatsApp&apos;tan Yaz"}
               </a>
             </div>
 
             {/* District tags */}
             <div className="mt-8 flex flex-wrap gap-2 justify-center lg:justify-start">
-              {["Çeşme", "Alaçatı", "Ilıca", "Dalyan", "Şifne"].map((d) => (
+              {["Çeşme"].map((d) => (
                 <span
                   key={d}
                   className="flex items-center gap-1 bg-white/10 text-blue-200 text-xs font-medium px-3 py-1.5 rounded-full border border-white/10"
@@ -433,7 +427,7 @@ function Hero() {
                   <p className="text-white text-sm font-medium">
                     &ldquo;Klimam çok kısa sürede tamir edildi, fiyat çok uygundu.&rdquo;
                   </p>
-                  <p className="text-blue-400 text-xs mt-1">— Mehmet A., Alaçatı</p>
+                  <p className="text-blue-400 text-xs mt-1">— Mehmet A., Çeşme</p>
                 </div>
 
                 {/* Live availability */}
@@ -553,7 +547,7 @@ function Services() {
             Uzmanlaştığımız Hizmetler
           </h2>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Çeşme ve İzmir genelinde klima montaj, bakım ve arıza onarımında
+            Çeşme&apos;de klima montaj, bakım ve arıza onarımında
             kapıdan kapıya, garantili teknik servis.
           </p>
         </div>
@@ -633,11 +627,11 @@ function AppointmentForm() {
               className="text-4xl sm:text-5xl font-black text-[#1e3a8a] mb-5 leading-tight"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              {"WhatsApp'tan"} Hızlı Randevu
+              {"WhatsApp&apos;tan"} Hızlı Randevu
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-8">
               Formu doldurun, bilgileriniz otomatik olarak{" "}
-              {"WhatsApp'a"} aktarılsın. Teknisyenimiz en kısa sürede
+              {"WhatsApp&apos;a"} aktarılsın. Teknisyenimiz en kısa sürede
               geri döner.
             </p>
 
@@ -645,7 +639,7 @@ function AppointmentForm() {
               {[
                 { icon: <Clock className="w-5 h-5" />, text: "Aynı gün montaj ve servis imkânı" },
                 { icon: <ShieldCheck className="w-5 h-5" />, text: "12 ay parça ve işçilik garantisi" },
-                { icon: <MapPin className="w-5 h-5" />, text: "Çeşme, Alaçatı, Ilıca, Dalyan, Şifne, Urla" },
+                { icon: <MapPin className="w-5 h-5" />, text: "Çeşme" },
                 { icon: <CheckCircle className="w-5 h-5" />, text: "Tüm marka ve modeller" },
               ].map(({ icon, text }) => (
                 <div key={text} className="flex items-center gap-3 text-slate-700">
@@ -672,7 +666,7 @@ function AppointmentForm() {
               ❄️ Randevu Formu
             </h3>
             <p className="text-blue-300 text-sm mb-7">
-              {"Bilgileriniz WhatsApp'a aktarılacaktır."}
+              {"Bilgileriniz WhatsApp&apos;a aktarılacaktır."}
             </p>
 
             <div className="space-y-4">
@@ -713,7 +707,7 @@ function AppointmentForm() {
                   name="address"
                   value={form.address}
                   onChange={handleChange}
-                  placeholder="Örn: Alaçatı / Çeşme"
+                  placeholder="Örn: Çeşme"
                   className={inputCls}
                 />
               </div>
@@ -936,7 +930,7 @@ function TrustSignals() {
             Güven Faktörleri
           </h2>
           <p className="text-blue-300 text-lg max-w-xl mx-auto">
-            Binlerce İzmir ve Çeşme sakininin tercih ettiği klima servisi
+            Binlerce Çeşme sakininin tercih ettiği klima servisi
             olmanın arkasındaki değerler.
           </p>
         </div>
@@ -1034,16 +1028,9 @@ function StickyWA() {
 function Footer() {
   const seoTags = [
     "Çeşme Klima Montajı",
-    "Alaçatı Klima Bakımı",
     "Çeşme Klima Servisi",
-    "Ilıca Klima Tamiri",
     "Çeşme Klima Gaz Dolumu",
-    "Dalyan Klima Montaj",
-    "Şifne Klima Servisi",
-    "Urla Klima Bakımı",
     "Çeşme Daikin Servis",
-    "Alaçatı Mitsubishi Klima",
-    "İzmir Çeşme VRF Sistem",
     "Çeşme Klima Su Damlatıyor",
   ];
 
@@ -1051,7 +1038,7 @@ function Footer() {
     <footer id="iletişim" className="bg-[#0a1628] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {/* Brand */}
+          {/* Brand */}&apos;
           <div>
             <div className="mb-4">
               <p
@@ -1065,7 +1052,7 @@ function Footer() {
               </p>
             </div>
             <p className="text-blue-300 text-sm leading-relaxed mb-6">
-              Çeşme, Alaçatı, Ilıca, Dalyan, Şifne ve Urla bölgelerinde klima
+              Çeşme&apos;de klima
               montaj, bakım, gaz dolumu ve arıza onarımında güvenilir adresiniz.
               Orijinal parça, 12 ay garantili işçilik.
             </p>
@@ -1108,8 +1095,8 @@ function Footer() {
               <div className="flex items-start gap-3 text-blue-300">
                 <MapPin className="w-4 h-4 text-[#0891b2] flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-white font-semibold">Çeşme & İzmir</p>
-                  <p>Alaçatı, Ilıca, Dalyan, Şifne, Urla</p>
+                  <p className="text-white font-semibold">Çeşme</p>
+                  <p>Çeşme / İzmir</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 text-blue-300">
